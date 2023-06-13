@@ -41,7 +41,7 @@ mongoose
     app.post("/auth", authenticateUser);
     app.post("/register", registerUser);
 
-    app.get("/ports", authenticateUserMiddleware, getPorts);
+    app.get("/ports", getPorts);
     app.get("/boats", authenticateUserMiddleware, getBoats);
     app.post("/boats", authenticateUserMiddleware, registerBoat);
     app.patch(
