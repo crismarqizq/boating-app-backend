@@ -17,7 +17,17 @@ module.exports = async (req, res) => {
 
     const userToken = jwt.sign(tokenPayload, tokenSecret, { expiresIn: "7d" });
 
-    res.status(200).send({ token: userToken });
+    const responsePayload = {
+      info: {
+        name: dbUser.name,
+        surname: dbUser.surname,
+        email: dbUser.email,
+        id: dbUser._id,
+      },
+      token: { value: userToken },
+    };
+
+    res.status(200).send(responsePayload);
   } catch (error) {
     console.log(error);
     if (error instanceof HttpException) {
