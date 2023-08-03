@@ -23,7 +23,7 @@ module.exports = async (req, res, next) => {
     }
 
     if (req.params.boatId) {
-      console.log("Checking boatId ownership");
+      console.log(`Checking boatId ownership for boat: ${req.params.boatId} and user ${userId}`);
 
       const boatId = req.params.boatId;
 

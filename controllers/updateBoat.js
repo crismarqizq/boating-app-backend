@@ -5,11 +5,14 @@ module.exports = async (req, res) => {
   const boatInfo = req.body;
 
   try {
-    const edited = await updateBoat(boatId, boatInfo);
+    const boat = await updateBoat(boatId, boatInfo);
 
-    const modified = edited ? true : false;
+    const boatObject = boat.toObject();
 
-    res.status(200).send({ modified });
+    boatObject.id = boatObject._id;
+    delete boatObject._id;
+
+    res.status(200).send(boatObject);
   } catch (error) {
     res.status(500).send({ message: error.message });
   }

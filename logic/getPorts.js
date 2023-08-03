@@ -1,12 +1,8 @@
-const { Port } = require('../models')
-
+const { Port } = require("../models");
 
 async function getPorts() {
-    const ports = await Port.find()
-    return ports
-
+  const ports = await Port.find();
+  return ports;
 }
 
-module.exports = getPorts
-
-
+module.exports = getPorts;
