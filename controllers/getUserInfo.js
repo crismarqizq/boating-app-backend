@@ -1,7 +1,9 @@
 const getUserInfo = require("../logic/getUserInfo");
 
 module.exports = async (req, res) => {
-  const userId = req.user.userId;
+  const userId = req.user.id;
+
+  console.log(`Getting info for sub: ${userId}`);
 
   try {
     const userInfo = await getUserInfo(userId);
